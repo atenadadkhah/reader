@@ -1,0 +1,44 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.banner {
+  background-image: url(/images/backgrounds/banner-bg.svg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 120px 0 100px;
+
+  .container {
+    @include position(relative, $z: 1);
+  }
+
+  &Shape1 {
+    @include position(absolute, 25%, 20%);
+
+    .path {
+      fill: $primaryColor;
+    }
+  }
+
+  &Shape2 {
+    @include position(absolute, 25%, $r: 20%);
+
+    .path {
+      fill: $primaryColor;
+    }
+  }
+
+  &Shape3 {
+    @include position(absolute, $r: 25%, $b: 15%);
+
+    .path {
+      fill: $primaryColor;
+    }
+  }
+
+  &Border {
+    @include position(absolute, $l: 0, $b: -60px);
+    width: 100%;
+    stroke: $primaryColor;
+  }
+}

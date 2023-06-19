@@ -1,0 +1,33 @@
+@mixin absoluteCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin size($w, $h, $d: null) {
+  width: $w;
+  height: $h;
+  display: $d;
+}
+
+@mixin position($p, $t: null, $l: null, $r: null, $b: null, $z: null) {
+  position: $p;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+  z-index: $z;
+}
+
+@mixin view($bool, $tr: null) {
+  @if ($bool) {
+    visibility: visible;
+    opacity: 1;
+  }
+  @else {
+    visibility: hidden;
+    opacity: 0;
+  }
+  transition: $tr;
+}

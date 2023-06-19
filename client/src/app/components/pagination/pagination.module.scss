@@ -1,0 +1,39 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.pagination {
+  display: flex;
+
+  .pageItem {
+    .pageLink {
+      @include size(40px, 40px, inline-block);
+      line-height: 40px;
+      border-radius: 50%;
+      background: transparent;
+      text-align: center;
+      padding: 0;
+      margin-right: 10px;
+      border: 1px solid $primaryColor;
+      color: $primaryColor;
+
+      &:hover {
+        background: $primaryColor;
+        color: #fff;
+        border-color: $primaryColor;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    &:first-child .pageLink, &:last-child .pageLink {
+      border-radius: 50%;
+    }
+
+    &.active .pageLink {
+      background: $primaryColor;
+      color: $whiteColor;
+      border-color: $primaryColor;
+    }
+  }
+}

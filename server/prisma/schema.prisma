@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  slug      String   @db.VarChar(255)
+  email     String   @unique
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+  profile   Profile?
+}
+
+model Profile {
+  id         Int     @id @default(autoincrement())
+  image      String? @db.VarChar(255)
+  bio        String?
+  definition String? @db.VarChar(255)
+  userId     Int     @unique
+  user       User    @relation(fields: [userId], references: [id])
+}
+
+model Post {
+  id          Int                 @id @default(autoincrement())
+  authorId    Int
+  title       String
+  slug        String
+  image       String?             @db.VarChar(255)
+  content     String
+  editorsPick Boolean             @default(false)
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  views       Int                 @default(0)
+  categories  CategoriesOnPosts[]
+  comments    Comment[]
+  author      User                @relation(fields: [authorId], references: [id])
+
+  @@unique([authorId, title])
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(255)
+  email     String    @db.VarChar(255)
+  postId    Int
+  content   String
+  parentId  Int?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  parent    Comment?  @relation("CommentChildren", fields: [parentId], references: [id])
+  children  Comment[] @relation("CommentChildren")
+  post      Post      @relation(fields: [postId], references: [id])
+}
+
+model Category {
+  id    Int                 @id @default(autoincrement())
+  name  String              @db.VarChar(255)
+  slug  String              @db.VarChar(255)
+  posts CategoriesOnPosts[]
+}
+
+model CategoriesOnPosts {
+  postId     Int
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+  post       Post     @relation(fields: [postId], references: [id])
+
+  @@id([postId, categoryId])
+}
+
+model Product {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  slug      String   @db.VarChar(255)
+  image     String
+  isNew     Boolean  @default(false)
+  short     String?  @db.VarChar(255)
+  price     Float
+  discount  Float?   @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

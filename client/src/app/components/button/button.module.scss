@@ -1,0 +1,45 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.btn {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 50px;
+  border: 1px solid;
+  @include position(relative, $z: 1);
+  transition: 0.2s ease;
+  display: inline-block;
+
+  &:hover, &:active, &:focus {
+    outline: 0;
+    box-shadow: none !important;
+  }
+
+  &Primary {
+    background: $primaryColor;
+    color: $whiteColor !important;
+    border-color: $primaryColor;
+
+    &:active, &:hover, &.focus, &.active {
+      background: $primaryColor !important;
+      border-color: $primaryColor !important;
+    }
+  }
+
+  &OutlinePrimary {
+    background: transparent;
+    color: $primaryColor;
+    border-color: $primaryColor;
+
+    &:active, &:hover, &.focus, &.active {
+      background: $primaryColor !important;
+      border-color: $primaryColor !important;
+      color: $whiteColor;
+    }
+  }
+
+  &Block {
+    @include size(100%, auto, block);
+  }
+}

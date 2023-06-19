@@ -1,0 +1,40 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.author {
+  @include position(relative, $z: 1);
+  padding: 120px 0 150px;
+
+  &Image {
+    border-radius: 50%;
+  }
+
+  &Shape1 {
+    @include position(absolute, 25%, 15%);
+
+    .path {
+      fill: $primaryColor;
+    }
+  }
+
+  &Shape2 {
+    @include position(absolute, 25%, $r: 15%);
+
+    .path {
+      fill: $primaryColor;
+    }
+  }
+
+  &Shape3 {
+    @include position(absolute, $b: 15%, $r: 20%);
+
+    .path {
+      fill: $primaryColor;
+    }
+  }
+
+  &Border {
+    @include position(absolute, $b: -15px, $l: 0, $z: -1);
+    width: 100%;
+    stroke: $primaryColor;
+  }
+}

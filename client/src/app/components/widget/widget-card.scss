@@ -1,0 +1,16 @@
+.widget {
+  margin-bottom: 30px;
+  padding: 15px;
+  border-radius: 5px;
+  border-top: 6px solid #4FD675;
+  background-color: #fff;
+
+  &-title {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+  }
+}

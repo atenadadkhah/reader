@@ -1,0 +1,34 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.widgetSearch {
+  position: relative;
+
+  input {
+    @include size(100%, 40px);
+    border: 1px solid transparent;
+    border-radius: 50px;
+    background-color: #F9F9F9;
+    padding-left: 20px;
+    transition: 0.2s ease;
+
+    &:focus {
+      border-color: #4FD675;
+      outline: 0;
+    }
+
+    &::-moz-placeholder {
+      font-size: 90%;
+    }
+
+    &::placeholder {
+      font-size: 90%;
+    }
+  }
+
+  i {
+    @include position(absolute, 15px, $r: 15px);
+    color: #333;
+    font-size: 12px;
+  }
+}
+

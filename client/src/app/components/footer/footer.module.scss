@@ -1,0 +1,26 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.footer {
+  padding: 120px 0 50px;
+  background-image: url(/images/backgrounds/footer-bg.svg);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &List a {
+    display: block;
+    color: #333;
+    padding: 5px;
+
+    &:hover {
+      color: $primaryColor;
+    }
+  }
+
+  &Border {
+    @include position(absolute, -75px);
+    width: 100%;
+    stroke: $primaryColor;
+  }
+}

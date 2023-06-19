@@ -1,0 +1,57 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.loaderBox {
+  @include size(100%, 30rem, flex);
+  justify-content: center;
+  align-items: center;
+
+  .dotWave {
+    --uib-size: 50px;
+    --uib-speed: 0.6s;
+    --uib-color: #0d0909;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    @include size(var(--uib-size), calc(var(--uib-size) * 0.17), flex);
+    padding-top: calc(var(--uib-size) * 0.34);
+
+    .dotWave__dot {
+      flex-shrink: 0;
+      @include size(calc(var(--uib-size) * 0.17), calc(var(--uib-size) * 0.17));
+      border-radius: 50%;
+      background-color: $primaryColor;
+      will-change: transform;
+
+      &:nth-child(1) {
+        animation: jump824 var(--uib-speed) ease-in-out
+        calc(var(--uib-speed) * -0.45) infinite;
+      }
+
+      &:nth-child(2) {
+        animation: jump824 var(--uib-speed) ease-in-out
+        calc(var(--uib-speed) * -0.3) infinite;
+      }
+
+      &:nth-child(3) {
+        animation: jump824 var(--uib-speed) ease-in-out
+        calc(var(--uib-speed) * -0.15) infinite;
+      }
+
+      &:nth-child(4) {
+        animation: jump824 var(--uib-speed) ease-in-out infinite;
+      }
+    }
+  }
+}
+
+
+@keyframes jump824 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-200%);
+  }
+}

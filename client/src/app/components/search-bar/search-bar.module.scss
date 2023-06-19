@@ -1,0 +1,42 @@
+@import '../../sass/var', '../../sass/mixins';
+
+.searchBar {
+  position: relative;
+  background-color: #F9F9F9;
+
+  input {
+    background-color: transparent;
+    border: 1px solid #EBEBEB;
+    height: 40px;
+    padding-left: 15px;
+    min-width: 12rem;
+    @include position(relative, 1);
+    border-radius: 5px;
+
+    &:focus {
+      border-color: $primaryColor;
+      outline: 0;
+    }
+
+    &::-moz-placeholder {
+      font-size: 90%;
+    }
+
+    &::placeholder {
+      font-size: 90%;
+    }
+
+    @media (max-width: 1023px) {
+      @include size(100%, 50px);
+      padding-left: 10px;
+      right: 0;
+    }
+
+  }
+
+  &::before {
+    @include position(absolute, 50%, $l: 13px);
+    font-size: 15px;
+    transform: translateY(-50%);
+  }
+}
