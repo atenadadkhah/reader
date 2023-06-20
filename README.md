@@ -19,7 +19,7 @@ https://github.com/atenadadkhah/reader/assets/91287064/9b0e3ab1-49ff-4456-9f6c-e
 
 
 ## Setup
-1. Open your pgAdmin to import the project database backup in (`reader_db_backup`)
+1. Open your pgAdmin to import the project database backup (in `reader_db_backup`)
 2. Open the server side app (server folder) and change the configuration of your database in `.env`
 3. Run the server side with `npm run start:dev`
 4. Open the client side app (client folder) and in `.env.local` check if the server side URL is correct
