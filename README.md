@@ -15,7 +15,11 @@ Reader is an impressive full stack web application crafted with Node.js, designe
 3. PostgreSQL
 
 
-https://github.com/atenadadkhah/reader/assets/91287064/9b0e3ab1-49ff-4456-9f6c-eff2e451eb1d
+
+
+https://github.com/atenadadkhah/reader/assets/91287064/c2118870-1755-455c-84d0-dd95259ecf2a
+
+
 
 
 ## Setup
