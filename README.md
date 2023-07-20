@@ -4,7 +4,7 @@ Reader is an impressive full stack web application crafted with Node.js, designe
 ## Technologies
 
 ### Client
-1. NEXT.JS
+1. Next.JS
 2. React Query
 3. SCSS
 4. Bulma
